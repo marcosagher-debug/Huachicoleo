@@ -21,26 +21,13 @@ Huachicoleo/
 └─ README.md
 ```
 
-Los datos sensibles no deberían versionarse; conserva únicamente ejemplos representativos o utiliza scripts para descargarlos bajo demanda.
-
 ## Preparación del entorno
 
 1. **Crear un entorno virtual**
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # En Windows: .venv\Scripts\activate
-   ```
-
+  
 2. **Instalar dependencias de ejecución**
-   ```bash
-   pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
 
 3. *(Opcional)* **Instalar herramientas de desarrollo**
-   ```bash
-   pip install -r requirements-dev.txt
-   ```
 
 4. **Verificar los datos**
    Coloca el CSV con mediciones históricas en `data/`. Por defecto se espera `data/rebombeo_huachicoleo.csv` con las columnas:
@@ -52,7 +39,7 @@ Los datos sensibles no deberían versionarse; conserva únicamente ejemplos repr
 
 ### Cuaderno exploratorio
 
-En `notebooks/Red_Huachicoleo.ipynb` encontrarás el flujo detallado para cargar datos, crear ventanas, entrenar el autoencoder y visualizar errores de reconstrucción. Es ideal para análisis ad-hoc y comunicación con perfiles de negocio.
+En `notebooks/Red_Huachicoleo.ipynb` se encuentra el flujo detallado para cargar datos, crear ventanas, entrenar el autoencoder y visualizar errores de reconstrucción. Es ideal para análisis ad-hoc y comunicación con perfiles de negocio.
 
 ### Script reproducible (`run_pipeline.py`)
 
@@ -121,12 +108,3 @@ Las pruebas unitarias se ubican en `tests/` y validan utilidades de preprocesami
 pytest
 ```
 
-> **Nota:** las ejecuciones completas del pipeline requieren instalar dependencias de `tensorflow`, que pueden no estar disponibles en entornos sin acceso a binarios precompilados. En dichos casos se recomienda usar un entorno local con GPU/CPU compatibles.
-
-## Próximos pasos sugeridos
-
-- Versionar modelos entrenados y escaladores (`model.save`, `joblib.dump`) para despliegue en producción.
-- Añadir validación `walk-forward` o pruebas retrospectivas con distintos periodos para evaluar robustez temporal.
-- Extender el pipeline con variables contextuales (eventos de mantenimiento, clima) y técnicas de detección adicionales (VAE, Transformers) según los requerimientos operativos.
-
-Con esta estructura podrás experimentar de forma controlada, generar reportes profesionales y preparar el modelo para integrarse en procesos de monitoreo industrial.
