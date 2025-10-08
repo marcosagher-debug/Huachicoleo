@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/*.code-workspace
+
+# Data artifacts
+artefactos/
+artefactos/*.json
+*.csv
+!data/rebombeo_huachicoleo.csv
+
+# Reports (generados por el pipeline)
+artefactos/*.md
+
+# Logs
+*.log
