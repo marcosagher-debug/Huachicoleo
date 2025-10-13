@@ -404,7 +404,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=[0.1, 0.2],
         help="Fracciones de validación internas en sweep",
     )
-    return parser
+    return parser 
 
 
 def parse_units(values: List[str] | None) -> List[int] | None:
@@ -490,3 +490,14 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    from src.reporting.anomaly_report import generate_anomaly_report
+
+# Llamada para generar el reporte de anomalías
+if output_path is not None:
+    save_artifacts(output_path, artifacts, ts_test, test_errors, y_test, y_pred)
+
+# Llamada para generar el reporte de anomalías
+if output_path is not None:
+    pdf_report_path = output_path.parent / "reporte_anomalias.pdf"
+    generate_anomaly_report(pdf_report_path, ts_test, test_errors, y_test, y_pred, window_size=30, anomaly_threshold=0.5)
+
